@@ -18,125 +18,117 @@ _A una API RESTful en Spring Boot para administrar eventos, inscripciones, asist
 - **Docker**  
 - **Postman** (para pruebas de la API)
 
-Uso de la API
+## Uso de la API
+
 La API expone los siguientes endpoints para gestionar eventos, participantes y asistencia:
 
-Eventos
-Crear Evento
+### Eventos
 
-Método: POST
-URL: /evento/crear
-Cuerpo (JSON):
-json
-Copiar
-Editar
-{
-  "nombreE": "Charla de ChatGPT",
-  "descripcion": "Evento sobre tecnología",
-  "fechaHoraE": "2025-02-04T20:42:49",
-  "cupoMax": 42
-}
-Listar Eventos
+- **Crear Evento**  
+  - **Método:** `POST`  
+  - **URL:** `/evento/crear`  
+  - **Cuerpo (JSON):**
+    ```json
+    {
+      "nombreE": "Charla de ChatGPT",
+      "descripcion": "Evento sobre tecnología",
+      "fechaHoraE": "2025-02-04T20:42:49",
+      "cupoMax": 42
+    }
+    ```
 
-Método: GET
-URL: /evento/traer
-Inscribir Participante a un Evento
+- **Listar Eventos**  
+  - **Método:** `GET`  
+  - **URL:** `/evento/traer`
 
-Método: PUT
-URL: /evento/inscripcion/{idEvento}/{idParticipante}
-Ejemplo:
-swift
-Copiar
-Editar
-PUT /evento/inscripcion/202/2
-Cancelar Inscripción de un Participante
+- **Inscribir Participante a un Evento**  
+  - **Método:** `PUT`  
+  - **URL:** `/evento/inscripcion/{idEvento}/{idParticipante}`  
+  - **Ejemplo:**  
+    ```
+    PUT /evento/inscripcion/202/2
+    ```
 
-Método: DELETE
-URL: /evento/cancelar/{idEvento}/{idParticipante}
-Ejemplo:
-swift
-Copiar
-Editar
-DELETE /evento/cancelar/202/2
-Generar Reporte de Evento (PDF)
+- **Cancelar Inscripción de un Participante**  
+  - **Método:** `DELETE`  
+  - **URL:** `/evento/cancelar/{idEvento}/{idParticipante}`  
+  - **Ejemplo:**  
+    ```
+    DELETE /evento/cancelar/202/2
+    ```
 
-Método: GET
-URL: /evento/reporte/{idEvento}
-Ejemplo:
-bash
-Copiar
-Editar
-GET /evento/reporte/1
-Participantes
-Crear Participante
+- **Generar Reporte de Evento (PDF)**  
+  - **Método:** `GET`  
+  - **URL:** `/evento/reporte/{idEvento}`  
+  - **Ejemplo:**  
+    ```
+    GET /evento/reporte/1
+    ```
 
-Método: POST
-URL: /participante/crear
-Cuerpo (JSON):
-json
-Copiar
-Editar
-{
-  "nombreP": "Juan",
-  "apellidoP": "Pérez",
-  "correo": "juan.perez@email.com"
-}
-Listar Participantes
+### Participantes
 
-Método: GET
-URL: /participante/traer
-Editar Participante
+- **Crear Participante**  
+  - **Método:** `POST`  
+  - **URL:** `/participante/crear`  
+  - **Cuerpo (JSON):**
+    ```json
+    {
+      "nombreP": "Juan",
+      "apellidoP": "Pérez",
+      "correo": "juan.perez@email.com"
+    }
+    ```
 
-Método: PUT
-URL: /participante/editar
-Cuerpo (JSON):
-json
-Copiar
-Editar
-{
-  "id": 102,
-  "nombreP": "Juan",
-  "apellidoP": "Martinez",
-  "correo": "juan@gmail.com"
-}
-Borrar Participante
+- **Listar Participantes**  
+  - **Método:** `GET`  
+  - **URL:** `/participante/traer`
 
-Método: DELETE
-URL: /participante/borrar/{idParticipante}
-Ejemplo:
-bash
-Copiar
-Editar
-DELETE /participante/borrar/53
-Asistencia
-Registrar/Actualizar Asistencia
+- **Editar Participante**  
+  - **Método:** `PUT`  
+  - **URL:** `/participante/editar`  
+  - **Cuerpo (JSON):**
+    ```json
+    {
+      "id": 102,
+      "nombreP": "Juan",
+      "apellidoP": "Martinez",
+      "correo": "juan@gmail.com"
+    }
+    ```
 
-Método: PUT
-URL: /asistencia/registrar/{idEvento}/{idParticipante}/{estadoAsistencia}
-Parámetro estadoAsistencia:
-0 para "Ausente"
-1 para "Confirmada"
-Ejemplo:
-swift
-Copiar
-Editar
-PUT /asistencia/registrar/202/2/0
-Obtener Reporte de Asistencia por Evento (PDF)
+- **Borrar Participante**  
+  - **Método:** `DELETE`  
+  - **URL:** `/participante/borrar/{idParticipante}`  
+  - **Ejemplo:**  
+    ```
+    DELETE /participante/borrar/53
+    ```
 
-Método: GET
-URL: /asistencia/evento/{idEvento}
-Ejemplo:
-bash
-Copiar
-Editar
-GET /asistencia/evento/152
-Obtener Reporte de Asistencia por Participante
+### Asistencia
 
-Método: GET
-URL: /asistencia/participante/{idParticipante}
-Ejemplo:
-bash
-Copiar
-Editar
-GET /asistencia/participante/102
+- **Registrar/Actualizar Asistencia**  
+  - **Método:** `PUT`  
+  - **URL:** `/asistencia/registrar/{idEvento}/{idParticipante}/{estadoAsistencia}`  
+  - **Parámetro `estadoAsistencia`:**  
+    - `0` para "Ausente"  
+    - `1` para "Confirmada"  
+  - **Ejemplo:**  
+    ```
+    PUT /asistencia/registrar/202/2/0
+    ```
 
+- **Obtener Reporte de Asistencia por Evento (PDF)**  
+  - **Método:** `GET`  
+  - **URL:** `/asistencia/evento/{idEvento}`  
+  - **Ejemplo:**  
+    ```
+    GET /asistencia/evento/152
+    ```
+
+- **Obtener Reporte de Asistencia por Participante**  
+  - **Método:** `GET`  
+  - **URL:** `/asistencia/participante/{idParticipante}`  
+  - **Ejemplo:**  
+    ```
+    GET /asistencia/participante/102
+    ```
