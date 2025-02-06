@@ -1,5 +1,5 @@
 # Sistema de Gestión de Eventos y Participantes
-_una API RESTful en Spring Boot para administrar eventos, inscripciones, asistencia, notificaciones y reportes en PDF._
+_Una API RESTful en Spring Boot para administrar eventos, inscripciones, asistencia, notificaciones y reportes en PDF._
 
 ## Descripción
 
