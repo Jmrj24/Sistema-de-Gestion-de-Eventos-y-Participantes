@@ -1,7 +1,7 @@
 # Sistema de Gestión de Eventos y Participantes
-_ una API RESTful en Spring Boot para administrar eventos, inscripciones, asistencia, notificaciones y reportes en PDF._
+_A una API RESTful en Spring Boot para administrar eventos, inscripciones, asistencia, notificaciones y reportes en PDF._
 
-## Descripción General:
+## Descripción
 
 Esta API permite la gestión completa de eventos y participantes. Con ella, se pueden crear, editar y listar eventos, registrar y administrar la inscripción de participantes, gestionar la asistencia (incluyendo actualizaciones de estado de "Sin Confirmar", "Confirmada" o "Ausente"), y generar reportes en PDF. Además, la API integra el envío de notificaciones por correo para mantener informados a los usuarios. Desarrollada con Java, Spring Boot y desplegada en Docker, es una solución escalable y preparada para entornos de producción.
 
